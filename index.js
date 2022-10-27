@@ -22,6 +22,10 @@ app.get('/courses', (req, res) => {
 app.get('/courses/:id', (req, res) => {
     const id = req.params.id;
     const course = courses.find(course=>course.id==id)
+
+    if (!course){
+      res.send("not found")
+    }
     res.send(course)
   })
   
